@@ -946,3 +946,133 @@ pets:AddSwitch("Auto Evolve Pets", function(state)
         print("Auto evolve OFF")
     end
 end)
+
+
+pets:AddLabel("=== Auto Vender Mascotas ===")
+
+pets:AddSwitch("Auto Delete Basic Pet", function(value)
+    _G.AutoDeleteBasic = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteBasic do
+                local basicPets = {"Blue Birdie", "Orange Hedgehog", "Red Kitty", "Blue Bunny", "Silver Dog"}
+                for _, petName in ipairs(basicPets) do
+                    local pet = LocalPlayer.petsFolder.Basic:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+pets:AddSwitch("Auto Delete Advanced Pet", function(value)
+    _G.AutoDeleteAdvanced = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteAdvanced do
+                local advancedPets = {"Yellow Butterfly", "Dark Vampy", "Dark Golem", "Green Butterfly", "Electro"}
+                for _, petName in ipairs(advancedPets) do
+                    local pet = LocalPlayer.petsFolder.Advanced:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+pets:AddSwitch("Auto Delete Rare Pet", function(value)
+    _G.AutoDeleteRare = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteRare do
+                local rarePets = {
+                    "Crimson Falcon", "Purple Dragon", "Orange Pegasus", "Red Dragon",
+                    "Purple Falcon", "White Pegasus", "Frostwave Legends Penguin",
+                    "Phantom Genesis Dragon", "Eternal Strike Leviathan", "Lightning", "Power Lightning"
+                }
+                for _, petName in ipairs(rarePets) do
+                    local pet = LocalPlayer.petsFolder.Rare:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+pets:AddSwitch("Auto Delete Epic Pet", function(value)
+    _G.AutoDeleteEpic = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteEpic do
+                local epicPets = {
+                    "Blue Pheonix", "Blue Firecaster", "Golden Pheonix", "Red Firecaster",
+                    "Green Firecaster", "White Pheonix", "Dark Legends Manticore",
+                    "Ultimate Supernova Pegasus", "Lightning Strike Phantom", "Golden Viking",
+                    "Corrupted Elements Hydra"
+                }
+                for _, petName in ipairs(epicPets) do
+                    local pet = LocalPlayer.petsFolder.Epic:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+pets:AddSwitch("Auto Delete Omega Pet", function(value)
+    _G.AutoDeleteOmega = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteOmega do
+                local omegaPets = {"Dual Destiny Shadow Dragon"}
+                for _, petName in ipairs(omegaPets) do
+                    local pet = LocalPlayer.petsFolder.Omega:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
+
+pets:AddSwitch("Auto Delete Unique Pet", function(value)
+    _G.AutoDeleteUnique = value
+    if value then
+        task.spawn(function()
+            while _G.AutoDeleteUnique do
+                local uniquePets = {
+                    "Infernal Dragon", "Magic Butterfly", "Ultra Birdie",
+                    "Aether Spirit Bunny", "Cybernetic Showdown Dragon", "Darkstar Hunter",
+                    "Muscle Sensei", "Neon Guardian", "DRAGON: Nebula Skystorm"
+                }
+                for _, petName in ipairs(uniquePets) do
+                    local pet = LocalPlayer.petsFolder.Unique:FindFirstChild(petName)
+                    if pet then
+                        sellRemote:FireServer("sellPet", pet)
+                        task.wait(0.01)
+                    end
+                end
+                task.wait(0.1)
+            end
+        end)
+    end
+end)
